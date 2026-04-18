@@ -1,12 +1,10 @@
-import './App.css'
-import Button from './components/button/Buttun'
+import DbControl from "./components/DbControl";
 
 function App() {
+  
   return (
-    <>
-      <Button text='Click me' onClick={() => alert('Button clicked!')} />
-    </>
-  )
+    <DbControl />
+  );
 }
 
-export default App
+export default App;
