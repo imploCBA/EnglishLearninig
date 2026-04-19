@@ -1,12 +1,22 @@
 .btn {
-    background-color: #4CAF50; /* Green */
+    background-color: #7416aa; /* Green */
     border: none;
+    border-radius: 5px;
     color: white;
-    padding: 15px 32px;
+    padding: 9px 52px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 16pt;
     margin: 4px 2px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #5e0f7a;
+}
+
+.btn:active {
+    background-color: #7e3e96;
 }

@@ -1,0 +1,11 @@
+.textBox {
+    border: 1px solid grey;
+    width: 500px;
+    text-align: center;
+    display: block;
+    min-height: 60px;
+    margin: 10px;
+    font-size: 15pt;
+    border-radius: 7px;
+    color: white;
+}

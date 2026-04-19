@@ -1,7 +1,9 @@
-import DbControl from "./components/DbControl";
-import style from './App.module.css';
-import Header from "./components/Header/Header";
 import { useState } from "react";
+import style from './App.module.css';
+
+import Header from "./components/Header/Header";
+import DbControl from "./components/DbControl";
+import LearnPage from "./components/LearnPage/LearnPage";
 
 function App() {
 
@@ -10,7 +12,7 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'learn':
-        return <p>Learn Page</p>;
+        return <LearnPage />;
       case 'database':
         return <DbControl />;
     }
