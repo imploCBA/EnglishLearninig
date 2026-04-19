@@ -1,0 +1,41 @@
+.header {
+    position: fixed;     
+    top: 0;              
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #26212b;
+    padding: 16px 70px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(174, 43, 185, 0.2);  
+    z-index: 1000;    
+}
+
+.logo {
+    font-size: 30pt;
+    font-weight: bold;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    gap: 16px; 
+}
+
+nav .btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: 0.5s ease; 
+    font-size: 15pt;
+}
+
+nav .btn:hover {
+    font-size: 25pt;
+    font-weight: bold;
+}

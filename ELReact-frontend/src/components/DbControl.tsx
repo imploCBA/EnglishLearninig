@@ -113,8 +113,8 @@ function DbControl() {
   const displayedSentences = filterLesson ? getFilteredByLesson() : sentences;
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
-      <h1>📚 Изучение английского языка</h1>
+    <div style={{ padding: '20px', paddingTop: '80px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
+      <h1>Изучение английского языка</h1>
       
       {error && <div style={{ color: 'red', margin: '10px 0', padding: '10px', backgroundColor: '#ffeeee', borderRadius: '5px' }}>{error}</div>}
       
