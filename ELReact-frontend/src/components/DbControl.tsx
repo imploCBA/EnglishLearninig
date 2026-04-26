@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Button from './Button/Buttun';
+import FilterBlock from './FilterBlock/FilterBlock';
 
 const API_URL = 'http://localhost:8080/api/items';
 
@@ -116,20 +118,20 @@ function DbControl() {
     <div style={{ padding: '20px', paddingTop: '80px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
       <h1>Изучение английского языка</h1>
       
-      {error && <div style={{ color: 'red', margin: '10px 0', padding: '10px', backgroundColor: '#ffeeee', borderRadius: '5px' }}>{error}</div>}
+      {error && <div style={{ color: 'red', margin: '10px 0', padding: '10px', borderRadius: '5px' }}>{error}</div>}
       
       {/* Форма добавления нового предложения */}
-      <div style={{ margin: '20px 0', padding: '20px', backgroundColor: '#e8f5e9', borderRadius: '5px' }}>
-        <h3>➕ Добавить новое предложение</h3>
+      <div style={{ margin: '20px 0', padding: '20px', borderRadius: '5px', border: '1px solid gray' }}>
+        <h2 style={{ marginBottom: '20px'}}>Добавить новое предложение</h2>
         <form onSubmit={handleAddSentence}>
           <div style={{ marginBottom: '10px' }}>
             <input
               type="text"
-              placeholder="Предложение на английском"
-              value={newSentence.sentence}
-              onChange={(e) => setNewSentence({...newSentence, sentence: e.target.value})}
+              placeholder="Номер урока (например: Lesson 1)"
+              value={newSentence.lessonNumber}
+              onChange={(e) => setNewSentence({...newSentence, lessonNumber: e.target.value})}
               required
-              style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+              style={{ width: '80%', padding: '8px', marginBottom: '10px' }}
             />
             <input
               type="text"
@@ -137,30 +139,24 @@ function DbControl() {
               value={newSentence.translate}
               onChange={(e) => setNewSentence({...newSentence, translate: e.target.value})}
               required
-              style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+              style={{ width: '80%', padding: '8px', marginBottom: '10px' }}
             />
             <input
               type="text"
-              placeholder="Номер урока (например: Lesson 1)"
-              value={newSentence.lessonNumber}
-              onChange={(e) => setNewSentence({...newSentence, lessonNumber: e.target.value})}
+              placeholder="Предложение на английском"
+              value={newSentence.sentence}
+              onChange={(e) => setNewSentence({...newSentence, sentence: e.target.value})}
               required
-              style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+              style={{ width: '80%', padding: '8px', marginBottom: '10px' }}
             />
           </div>
-          <button 
-            type="submit" 
-            disabled={isAdding}
-            style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '3px', cursor: 'pointer' }}
-          >
-            {isAdding ? 'Добавление...' : 'Добавить предложение'}
-          </button>
+          <Button text ={isAdding ? 'Добавление...' : 'Добавить предложение'} type='submit'/>
         </form>
       </div>
-      
+
       {/* Фильтр по урокам */}
-      <div style={{ margin: '20px 0', padding: '15px', backgroundColor: '#f0f0f0', borderRadius: '5px' }}>
-        <h3>Фильтр по урокам:</h3>
+      <div style={{ margin: '20px 0', padding: '15px', border: '1px solid gray', borderRadius: '5px' }}>
+        <h2 style={{ padding: '5px 10px' }}>Фильтр по урокам:</h2>
         <select 
           value={filterLesson} 
           onChange={(e) => setFilterLesson(e.target.value)}
@@ -179,19 +175,19 @@ function DbControl() {
       </div>
       
       {/* Статистика */}
-      <div style={{ margin: '10px 0', padding: '10px', backgroundColor: '#e3f2fd', borderRadius: '5px' }}>
-        <strong>📊 Статистика:</strong> Всего предложений: {sentences.length}, 
+      <div style={{ margin: '10px 0', padding: '10px', border: '1px solid gray', borderRadius: '5px', color: 'white' }}>
+        <strong> Статистика:</strong> Всего предложений: {sentences.length}, 
         Уроков: {getUniqueLessons().length}
       </div>
       
       {/* Таблица всех предложений */}
       <div style={{ margin: '20px 0', overflowX: 'auto' }}>
-        <h3>Все предложения ({displayedSentences.length}):</h3>
+        <h2 style={{ padding: '5px 10px' }}>Все предложения ({displayedSentences.length}):</h2>
         {loading ? (
           <div>Загрузка...</div>
         ) : (
           <table border={1} cellPadding={10} style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead style={{ backgroundColor: '#4CAF50', color: 'white' }}>
+            <thead style={{ backgroundColor: '#7416aa', color: 'white' }}>
               <tr>
                 <th>Индекс</th>
                 <th>ID</th>
@@ -216,8 +212,8 @@ function DbControl() {
       </div>
 
       {/* Получение по индексам */}
-      <div style={{ margin: '20px 0', padding: '15px', backgroundColor: '#e3f2fd', borderRadius: '5px' }}>
-        <h3>🔍 Получить предложения по индексам:</h3>
+      <div style={{ margin: '20px 0', padding: '15px', border: '1px solid gray', borderRadius: '5px' }}>
+        <h2 style={{ padding: '5px 10px' }}>Получить предложения по индексам:</h2>
         <input 
           type="text" 
           placeholder="Например: 0,2,4"
@@ -225,22 +221,17 @@ function DbControl() {
           onChange={(e) => setSelectedIndices(e.target.value)}
           style={{ padding: '8px', marginRight: '10px', width: '200px' }}
         />
-        <button 
-          onClick={fetchSentencesByIndices} 
-          disabled={loading}
-          style={{ padding: '8px 15px', backgroundColor: '#2196F3', color: 'white', border: 'none', borderRadius: '3px', cursor: 'pointer' }}
-        >
-          Получить
-        </button>
+
+        <Button text='Получить' type='button' onClick={fetchSentencesByIndices}/>
         
         {filteredSentences.length > 0 && (
           <div style={{ marginTop: '20px' }}>
             <h4>📖 Выбранные предложения:</h4>
             {filteredSentences.map((sentence, idx) => (
-              <div key={idx} style={{ padding: '10px', marginBottom: '10px', backgroundColor: '#fff', border: '1px solid #ddd', borderRadius: '5px' }}>
+              <div key={idx} style={{ padding: '10px', marginBottom: '10px', borderRadius: '5px' }}>
                 <strong>Урок {sentence.lessonNumber}:</strong><br />
-                <span style={{ fontStyle: 'italic', color: '#2196F3' }}>{sentence.sentence}</span><br />
-                <span style={{ color: '#666' }}>{sentence.translate}</span>
+                <span style={{color: '#be6eff' }}>{sentence.sentence}</span><br />
+                <span style={{ color: '#888' }}>{sentence.translate}</span>
               </div>
             ))}
           </div>

@@ -4,12 +4,12 @@
     left: 0;
     right: 0;
     height: 60px;
-    background-color: #1b171f;
+    background-color: #20242B;
     padding: 16px 70px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    box-shadow: 0 2px 8px rgba(174, 43, 185, 0.2);  
+    box-shadow: 0 2px 8px rgba(36, 3, 39, 0.205);  
     z-index: 1000;    
 }
 

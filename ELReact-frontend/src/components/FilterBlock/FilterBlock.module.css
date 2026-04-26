@@ -1,0 +1,16 @@
+.filter {
+    border: 1px solid grey;
+    width: 500px;
+    text-align: center;
+    display: block;
+    min-height: 70px;
+    padding: 10px 0;
+    margin: 10px;
+    font-size: 15pt;
+    border-radius: 7px;
+    color: white;
+}
+
+.filter .select {
+    margin-right: 10px;
+}

@@ -2,12 +2,13 @@ import style from './TextBox.module.css';
 
 interface TextBoxProps{
     text: string;
+    visable?: boolean;
 }
 
-const TextBox = ({text}:TextBoxProps)=>{
+const TextBox = ({text, visable = true}:TextBoxProps)=>{
     return (
         <div className={style.textBox}>
-            <p>{text}</p>
+            {visable ? <p>{text}</p> : <p>Closed</p>}
         </div>
     );
 };

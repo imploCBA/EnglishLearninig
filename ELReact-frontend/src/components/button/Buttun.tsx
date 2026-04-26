@@ -3,12 +3,13 @@ import style from './Button.module.css';
 
 interface ButtonProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
+  type: "button"|"submit";
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick, type }) => {
   return (
-    <button onClick={onClick} className={style.btn}>
+    <button onClick={onClick} className={style.btn} type={type}>
       {text}
     </button>
   );
