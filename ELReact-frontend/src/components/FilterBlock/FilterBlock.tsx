@@ -1,6 +1,7 @@
 import type React from 'react';
 import styles from './FilterBlock.module.css';
 import Button from '../Button/Buttun';
+import Select from '../Select/Select';
 
 interface FilterBlockProps {
     header: string;
@@ -14,18 +15,12 @@ const FilterBlock:React.FC<FilterBlockProps> = ({ header = "", filterVal, change
  return (
     <div className={styles.filter}>
         <h2>{header}</h2>
-        <select
-            className={styles.select}
+        <Select
+            defaultValue='All Lessons'
             value={filterVal}
-            onChange={(e) => changeFilter(e.target.value)}
-        >
-            <option value="">All Lessons</option>
-            {options?.map((option) => (
-                <option key={option} value={option}>
-                    {option}
-                </option>
-            ))}
-        </select>
+            onChange={changeFilter}
+            options={options || undefined}
+        />
         {filterVal && (
             <Button text="Reset Filter" onClick={() => changeFilter('') } type="button" />
         )}

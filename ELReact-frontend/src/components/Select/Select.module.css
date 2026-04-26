@@ -1,0 +1,35 @@
+select, select::picker(select) {
+    appearance: base-select;
+}
+
+.select{
+    font-size: 12pt;
+    width: 250px;
+    padding: 7px 25px;
+    border-radius: 4px;
+    border-color:#FFF;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+select::picker-icon {
+    color: #7416AA;
+}
+
+.select option{
+    padding: 9px 25px;
+    background-color: #272B34;
+    transition: background-color 0.3s ease;
+}
+
+.select option::checkmark {
+    content: "";
+}
+
+.select option:hover{
+    background-color: #272B34;
+}
+
+.select option:checked {
+    background-color: #ac10db;
+}

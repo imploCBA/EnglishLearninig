@@ -7,8 +7,8 @@
 }
 
 .btnCont {
-  width: 500px;
+  width: 600px;
   display: flex;
-  gap: 22px;
+  gap: 78px;
   justify-content: center;
 }

@@ -1,6 +1,6 @@
 .textBox {
     border: 1px solid grey;
-    width: 500px;
+    width: 600px;
     text-align: center;
     display: block;
     min-height: 60px;
@@ -8,4 +8,5 @@
     font-size: 15pt;
     border-radius: 7px;
     color: white;
+    padding: 8px;
 }
